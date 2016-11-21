@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Serialization;
 using TumblrViewer.Model;
+using TumblrViewer.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -26,11 +27,15 @@ namespace TumblrViewer.View
     /// </summary>
     public sealed partial class HomePage : Page
     {
-        String webresponse = String.Empty;
+        UserPageViewModel _userPageViewModel;
 
         public HomePage()
         {
+            _userPageViewModel = new UserPageViewModel();
+
             this.InitializeComponent();
+            this.DataContext = _userPageViewModel;
+
             NavPane.InitializeDrawerLayout();
         }
 
@@ -83,9 +88,9 @@ namespace TumblrViewer.View
             }
         }
 
-        private async void SearchButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private void SearchButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            
+            _userPageViewModel.SendRequest();
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -100,6 +105,16 @@ namespace TumblrViewer.View
                 SearchButton.Visibility = Visibility.Collapsed;
                 SearchIcon.Visibility = Visibility.Visible;
             }
+        }
+
+        private void MainListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
         }
     }
 }

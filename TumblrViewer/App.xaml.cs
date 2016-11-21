@@ -8,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,6 +37,9 @@ namespace TumblrViewer
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+
+            //var statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+            //statusBar.BackgroundColor = Color.FromArgb(1, 54, 70, 93);
         }
 
         /// <summary>

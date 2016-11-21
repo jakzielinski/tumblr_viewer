@@ -87,6 +87,11 @@
     </Compile>
     <Compile Include="Model\TumblrModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Converters\DateToTimeAgoConverter.cs" />
+    <Compile Include="Utils\Converters\PhotoCaptionToString.cs" />
+    <Compile Include="Utils\Converters\PhotoListToPhotoConverter.cs" />
+    <Compile Include="Utils\Selectors\PostsDataTemplateSelector.cs" />
+    <Compile Include="ViewModel\PageHeaderViewModel.cs" />
     <Compile Include="ViewModel\UserPageViewModel.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>

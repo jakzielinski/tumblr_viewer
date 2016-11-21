@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TumblrViewer.View"
     xmlns:Drawer="using:DrawerLayout"
+    xmlns:Converters="using:TumblrViewer.Utils.Converters"
+    xmlns:Template="using:TumblrViewer.Utils.Selectors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -22,13 +24,50 @@
             </Grid.ColumnDefinitions>
             <TextBlock x:Uid="MenuIcon" x:Name="MenuIcon" VerticalAlignment="Center" FontSize="40" Padding="0,0,0,12" Text="&#xE26E;" FontFamily="Segoe UI Symbol" Tapped="MenuIcon_Tapped"/>
             <TextBlock x:Uid="MainPageHeader" x:Name="MainPageHeader" Grid.Column="1" Foreground="White" Margin="5,0" Visibility="Visible" VerticalAlignment="Center" FontSize="18"/>
-            <TextBox x:Uid="SearchBox" x:Name="SearchBox" VerticalAlignment="Center" Text="{Binding UserName}" PlaceholderText="" Visibility="Collapsed" Grid.Column="1" Margin="5" TextChanged="SearchBox_TextChanged" />
-            <TextBlock x:Uid="SearchIcon" x:Name="SearchIcon" VerticalAlignment="Center" Visibility="Visible" Grid.Column="2" Margin="10,0" Text="&#xE094;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Left" Tapped="SearchIcon_Tapped"/>
-            <TextBlock x:Uid="SearchButton" x:Name="SearchButton" VerticalAlignment="Center" Visibility="Collapsed" Grid.Column="2" Margin="10,0" Text="&#xE0AD;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Left" Tapped="SearchButton_Tapped"/>
+            <TextBox x:Uid="SearchBox" x:Name="SearchBox" VerticalAlignment="Center" Text="{Binding userName, Mode=TwoWay}" PlaceholderText="" Visibility="Collapsed" Grid.Column="1" Margin="5" TextChanged="SearchBox_TextChanged" />
+            <TextBlock x:Uid="SearchIcon" x:Name="SearchIcon" VerticalAlignment="Center" Visibility="Visible" Grid.Column="2" Margin="10,0" Text="&#xE094;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tapped="SearchIcon_Tapped"/>
+            <TextBlock x:Uid="SearchButton" x:Name="SearchButton" VerticalAlignment="Center" Visibility="Collapsed" Grid.Column="2" Margin="10,0" Text="&#xE0AD;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tapped="SearchButton_Tapped"/>
         </Grid>
-        <Drawer:DrawerLayout Grid.Row="1"  x:Name="NavPane">
+        <Drawer:DrawerLayout Grid.Row="1" x:Name="NavPane">
             <Grid x:Name="MainFragment" Background="#4E6587">
-                
+                <Grid.Resources>
+                    <Converters:PhotoListToPhotoConverter x:Key="PhotoListToPhotoConverter" />
+                    <Converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter" />
+                    <Converters:PhotoCaptionToString x:Key="PhotoCaptionToString"/>
+                </Grid.Resources>
+                <ListView x:Name="MainListView" ItemsSource="{Binding postCollection}" Height="Auto" SelectionChanged="MainListView_SelectionChanged">
+                        <!--<ListView.Resources>
+                        </ListView.Resources>-->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Width="75" Height="75" Margin="10" Grid.Column="0">
+                                            <Image.Source>
+                                                <BitmapImage UriSource="{Binding photourl, Converter ={StaticResource PhotoListToPhotoConverter}}"  />
+                                            </Image.Source>
+                                        </Image>
+                                        <TextBlock Text="{Binding photocaption, Converter={StaticResource PhotoCaptionToString}}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0" Grid.Column="1" AllowDrop="False"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding dategmt, Converter={StaticResource DateToTimeAgoConverter }}" VerticalAlignment="Center" Margin="10,0" Grid.Column="1" AllowDrop="False"/>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
             </Grid>
             <Grid x:Name="ListFragment" Background="#4E6587">
                 <Grid.RowDefinitions>
@@ -38,12 +77,12 @@
                 <ListView Grid.Row="1" VerticalAlignment="Center" Background="#4E6587" x:Name="MenuItems" SelectionChanged="MenuItems_SelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid  Background="#4E6587" Margin="0,0,0,1">
+                            <Grid Background="#4E6587" Margin="0,0,0,1" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0"   Text="{Binding}" Margin="10"  VerticalAlignment="Center" FontSize="18" Foreground="White" />
+                                <TextBlock Grid.Row="0" Text="{Binding MenuList}" Margin="10"  VerticalAlignment="Center" FontSize="18" Foreground="White" />
                                 <Rectangle Grid.Row="1" HorizontalAlignment="Left" Fill="Gray" Width="500" Height="0.5"/>
                             </Grid>
                         </DataTemplate>
@@ -52,4 +91,12 @@
             </Grid>
         </Drawer:DrawerLayout>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#36465D">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="refresh"/>
+                <AppBarButton Icon="Sort" Label="sort"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
