@@ -124,17 +124,23 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "TumblrViewer.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "TumblrViewer.View.HomePage";
+            _typeNameTable = new string[7];
+            _typeNameTable[0] = "DrawerLayout.DrawerLayout";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Grid";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.Panel";
+            _typeNameTable[3] = "Boolean";
+            _typeNameTable[4] = "TumblrViewer.View.HomePage";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::TumblrViewer.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::TumblrViewer.View.HomePage);
+            _typeTable = new global::System.Type[7];
+            _typeTable[0] = typeof(global::DrawerLayout.DrawerLayout);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Grid);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Panel);
+            _typeTable[3] = typeof(global::System.Boolean);
+            _typeTable[4] = typeof(global::TumblrViewer.View.HomePage);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -169,8 +175,8 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::TumblrViewer.MainPage(); }
-        private object Activate_3_HomePage() { return new global::TumblrViewer.View.HomePage(); }
+        private object Activate_0_DrawerLayout() { return new global::DrawerLayout.DrawerLayout(); }
+        private object Activate_4_HomePage() { return new global::TumblrViewer.View.HomePage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -182,37 +188,70 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  TumblrViewer.MainPage
+            case 0:   //  DrawerLayout.DrawerLayout
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Grid"));
+                userType.Activator = Activate_0_DrawerLayout;
+                userType.AddMemberName("IsDrawerOpen");
+                xamlType = userType;
+                break;
+
+            case 1:   //  Windows.UI.Xaml.Controls.Grid
+                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Windows.UI.Xaml.Controls.Panel
+                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Boolean
+                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  TumblrViewer.View.HomePage
                 userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+                userType.Activator = Activate_4_HomePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 5:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 6:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 3:   //  TumblrViewer.View.HomePage
-                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_HomePage;
-                userType.SetIsLocalType();
-                xamlType = userType;
                 break;
             }
             return xamlType;
         }
 
 
+        private object get_0_DrawerLayout_IsDrawerOpen(object instance)
+        {
+            var that = (global::DrawerLayout.DrawerLayout)instance;
+            return that.IsDrawerOpen;
+        }
+        private void set_0_DrawerLayout_IsDrawerOpen(object instance, object Value)
+        {
+            var that = (global::DrawerLayout.DrawerLayout)instance;
+            that.IsDrawerOpen = (global::System.Boolean)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "DrawerLayout.DrawerLayout.IsDrawerOpen":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("DrawerLayout.DrawerLayout");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "IsDrawerOpen", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_DrawerLayout_IsDrawerOpen;
+                xamlMember.Setter = set_0_DrawerLayout_IsDrawerOpen;
+                break;
+            }
             return xamlMember;
         }
     }

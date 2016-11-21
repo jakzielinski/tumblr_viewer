@@ -1,1 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Files><file>\TumblrViewer.exe</file></Files>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Files>
+  <file>\TumblrViewer.exe</file>
+  <file>\DrawerLayout.dll</file>
+  <file>\System.Runtime.InteropServices.RuntimeInformation.dll</file>
+  <file>\Xml.Net.dll</file>
+</Files>

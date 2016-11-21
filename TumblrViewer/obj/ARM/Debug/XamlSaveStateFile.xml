@@ -1,5 +1,8 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\korko\documents\visual studio 2015\projects\tumblrviewer\tumblrviewer\obj\arm\debug\intermediatexaml\tumblrviewer.exe" HashGuid="0883792a-fc0c-bda0-a01f-40e1c0155546" />
+    <LocalAssembly PathName="c:\users\korko\documents\visual studio 2015\projects\tumblrviewer\tumblrviewer\obj\arm\debug\intermediatexaml\tumblrviewer.exe" HashGuid="40ad80a9-f96d-2ce7-8643-ee8752b2350b" />
+    <ReferenceAssembly PathName="c:\users\korko\documents\visual studio 2015\projects\tumblrviewer\packages\drawerlayout.1.0.4\lib\drawerlayout.dll" HashGuid="b0d3b3f8-90b7-6a66-b416-66f64dcf26fa" />
+    <ReferenceAssembly PathName="c:\users\korko\documents\visual studio 2015\projects\tumblrviewer\packages\system.runtime.interopservices.runtimeinformation.4.0.0\lib\wpa81\system.runtime.interopservices.runtimeinformation.dll" HashGuid="037c61cf-b1a0-82d6-0cea-3655359be2ea" />
+    <ReferenceAssembly PathName="c:\users\korko\documents\visual studio 2015\projects\tumblrviewer\packages\xml.net.1.0.6\lib\netstandard1.0\xml.net.dll" HashGuid="e1dddc02-8fb6-50e7-5078-d6c7c9473eb6" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>
