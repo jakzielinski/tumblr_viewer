@@ -14,7 +14,7 @@ namespace TumblrViewer.Utils.Converters
         {
             String url = String.Empty;
             tumblrPostsPostPhotourl[] val = (tumblrPostsPostPhotourl[])value;
-            url = val.ToList().OrderBy(x => x.maxwidth).First().Value;
+            url = val.ToList().Where(x => x.maxwidth.Equals(500)).First().Value;
             return url;
         }
 

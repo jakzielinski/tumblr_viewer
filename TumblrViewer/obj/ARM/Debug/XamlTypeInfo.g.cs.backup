@@ -124,31 +124,43 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[11];
-            _typeNameTable[0] = "DrawerLayout.DrawerLayout";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Grid";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.Panel";
-            _typeNameTable[3] = "Boolean";
-            _typeNameTable[4] = "TumblrViewer.Utils.Converters.PhotoListToPhotoConverter";
-            _typeNameTable[5] = "Object";
-            _typeNameTable[6] = "TumblrViewer.Utils.Converters.DateToTimeAgoConverter";
-            _typeNameTable[7] = "TumblrViewer.Utils.Converters.PhotoCaptionToString";
-            _typeNameTable[8] = "TumblrViewer.View.HomePage";
-            _typeNameTable[9] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[10] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable = new string[17];
+            _typeNameTable[0] = "TumblrViewer.Utils.Converters.PhotoListToPhotoConverter";
+            _typeNameTable[1] = "Object";
+            _typeNameTable[2] = "TumblrViewer.Utils.Converters.DateToTimeAgoConverter";
+            _typeNameTable[3] = "TumblrViewer.Utils.Converters.CaptionToString";
+            _typeNameTable[4] = "TumblrViewer.Utils.Converters.VideoConverter";
+            _typeNameTable[5] = "TumblrViewer.Utils.Converters.ToUpperCaseConverter";
+            _typeNameTable[6] = "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[8] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[9] = "DrawerLayout.DrawerLayout";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.Grid";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Panel";
+            _typeNameTable[12] = "Boolean";
+            _typeNameTable[13] = "TumblrViewer.View.HomePage";
+            _typeNameTable[14] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[15] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[16] = "TumblrViewer.View.PostPage";
 
-            _typeTable = new global::System.Type[11];
-            _typeTable[0] = typeof(global::DrawerLayout.DrawerLayout);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Grid);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Panel);
-            _typeTable[3] = typeof(global::System.Boolean);
-            _typeTable[4] = typeof(global::TumblrViewer.Utils.Converters.PhotoListToPhotoConverter);
-            _typeTable[5] = typeof(global::System.Object);
-            _typeTable[6] = typeof(global::TumblrViewer.Utils.Converters.DateToTimeAgoConverter);
-            _typeTable[7] = typeof(global::TumblrViewer.Utils.Converters.PhotoCaptionToString);
-            _typeTable[8] = typeof(global::TumblrViewer.View.HomePage);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable = new global::System.Type[17];
+            _typeTable[0] = typeof(global::TumblrViewer.Utils.Converters.PhotoListToPhotoConverter);
+            _typeTable[1] = typeof(global::System.Object);
+            _typeTable[2] = typeof(global::TumblrViewer.Utils.Converters.DateToTimeAgoConverter);
+            _typeTable[3] = typeof(global::TumblrViewer.Utils.Converters.CaptionToString);
+            _typeTable[4] = typeof(global::TumblrViewer.Utils.Converters.VideoConverter);
+            _typeTable[5] = typeof(global::TumblrViewer.Utils.Converters.ToUpperCaseConverter);
+            _typeTable[6] = typeof(global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[9] = typeof(global::DrawerLayout.DrawerLayout);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.Grid);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Panel);
+            _typeTable[12] = typeof(global::System.Boolean);
+            _typeTable[13] = typeof(global::TumblrViewer.View.HomePage);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[16] = typeof(global::TumblrViewer.View.PostPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -183,11 +195,15 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_DrawerLayout() { return new global::DrawerLayout.DrawerLayout(); }
-        private object Activate_4_PhotoListToPhotoConverter() { return new global::TumblrViewer.Utils.Converters.PhotoListToPhotoConverter(); }
-        private object Activate_6_DateToTimeAgoConverter() { return new global::TumblrViewer.Utils.Converters.DateToTimeAgoConverter(); }
-        private object Activate_7_PhotoCaptionToString() { return new global::TumblrViewer.Utils.Converters.PhotoCaptionToString(); }
-        private object Activate_8_HomePage() { return new global::TumblrViewer.View.HomePage(); }
+        private object Activate_0_PhotoListToPhotoConverter() { return new global::TumblrViewer.Utils.Converters.PhotoListToPhotoConverter(); }
+        private object Activate_2_DateToTimeAgoConverter() { return new global::TumblrViewer.Utils.Converters.DateToTimeAgoConverter(); }
+        private object Activate_3_CaptionToString() { return new global::TumblrViewer.Utils.Converters.CaptionToString(); }
+        private object Activate_4_VideoConverter() { return new global::TumblrViewer.Utils.Converters.VideoConverter(); }
+        private object Activate_5_ToUpperCaseConverter() { return new global::TumblrViewer.Utils.Converters.ToUpperCaseConverter(); }
+        private object Activate_6_PostsDataTemplateSelector() { return new global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector(); }
+        private object Activate_9_DrawerLayout() { return new global::DrawerLayout.DrawerLayout(); }
+        private object Activate_13_HomePage() { return new global::TumblrViewer.View.HomePage(); }
+        private object Activate_16_PostPage() { return new global::TumblrViewer.View.PostPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -199,75 +215,210 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  DrawerLayout.DrawerLayout
+            case 0:   //  TumblrViewer.Utils.Converters.PhotoListToPhotoConverter
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_PhotoListToPhotoConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 1:   //  Object
+                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  TumblrViewer.Utils.Converters.DateToTimeAgoConverter
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_2_DateToTimeAgoConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 3:   //  TumblrViewer.Utils.Converters.CaptionToString
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_3_CaptionToString;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  TumblrViewer.Utils.Converters.VideoConverter
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_4_VideoConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  TumblrViewer.Utils.Converters.ToUpperCaseConverter
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_5_ToUpperCaseConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  TumblrViewer.Utils.Selectors.PostsDataTemplateSelector
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_6_PostsDataTemplateSelector;
+                userType.AddMemberName("VideoTemplate");
+                userType.AddMemberName("PhotoTemplate");
+                userType.AddMemberName("DefaultTemplate");
+                userType.AddMemberName("RegularTemplate");
+                userType.AddMemberName("LinkTemplate");
+                userType.AddMemberName("QuoteTemplate");
+                userType.AddMemberName("ConversationTemplate");
+                userType.AddMemberName("AudioTemplate");
+                userType.AddMemberName("AnswerTemplate");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  DrawerLayout.DrawerLayout
                 userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Grid"));
-                userType.Activator = Activate_0_DrawerLayout;
+                userType.Activator = Activate_9_DrawerLayout;
                 userType.AddMemberName("IsDrawerOpen");
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Grid
+            case 10:   //  Windows.UI.Xaml.Controls.Grid
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.Panel
+            case 11:   //  Windows.UI.Xaml.Controls.Panel
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Boolean
+            case 12:   //  Boolean
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  TumblrViewer.Utils.Converters.PhotoListToPhotoConverter
-                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_4_PhotoListToPhotoConverter;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 5:   //  Object
-                xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 6:   //  TumblrViewer.Utils.Converters.DateToTimeAgoConverter
-                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_6_DateToTimeAgoConverter;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 7:   //  TumblrViewer.Utils.Converters.PhotoCaptionToString
-                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_7_PhotoCaptionToString;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 8:   //  TumblrViewer.View.HomePage
+            case 13:   //  TumblrViewer.View.HomePage
                 userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_HomePage;
+                userType.Activator = Activate_13_HomePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Windows.UI.Xaml.Controls.Page
+            case 14:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  Windows.UI.Xaml.Controls.UserControl
+            case 15:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 16:   //  TumblrViewer.View.PostPage
+                userType = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_PostPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
         }
 
 
-        private object get_0_DrawerLayout_IsDrawerOpen(object instance)
+        private object get_0_PostsDataTemplateSelector_VideoTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.VideoTemplate;
+        }
+        private void set_0_PostsDataTemplateSelector_VideoTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.VideoTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_1_PostsDataTemplateSelector_PhotoTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.PhotoTemplate;
+        }
+        private void set_1_PostsDataTemplateSelector_PhotoTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.PhotoTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_2_PostsDataTemplateSelector_DefaultTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.DefaultTemplate;
+        }
+        private void set_2_PostsDataTemplateSelector_DefaultTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.DefaultTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_3_PostsDataTemplateSelector_RegularTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.RegularTemplate;
+        }
+        private void set_3_PostsDataTemplateSelector_RegularTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.RegularTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_4_PostsDataTemplateSelector_LinkTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.LinkTemplate;
+        }
+        private void set_4_PostsDataTemplateSelector_LinkTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.LinkTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_5_PostsDataTemplateSelector_QuoteTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.QuoteTemplate;
+        }
+        private void set_5_PostsDataTemplateSelector_QuoteTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.QuoteTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_6_PostsDataTemplateSelector_ConversationTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.ConversationTemplate;
+        }
+        private void set_6_PostsDataTemplateSelector_ConversationTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.ConversationTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_7_PostsDataTemplateSelector_AudioTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.AudioTemplate;
+        }
+        private void set_7_PostsDataTemplateSelector_AudioTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.AudioTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_8_PostsDataTemplateSelector_AnswerTemplate(object instance)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            return that.AnswerTemplate;
+        }
+        private void set_8_PostsDataTemplateSelector_AnswerTemplate(object instance, object Value)
+        {
+            var that = (global::TumblrViewer.Utils.Selectors.PostsDataTemplateSelector)instance;
+            that.AnswerTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_9_DrawerLayout_IsDrawerOpen(object instance)
         {
             var that = (global::DrawerLayout.DrawerLayout)instance;
             return that.IsDrawerOpen;
         }
-        private void set_0_DrawerLayout_IsDrawerOpen(object instance, object Value)
+        private void set_9_DrawerLayout_IsDrawerOpen(object instance, object Value)
         {
             var that = (global::DrawerLayout.DrawerLayout)instance;
             that.IsDrawerOpen = (global::System.Boolean)Value;
@@ -280,12 +431,66 @@ namespace TumblrViewer.TumblrViewer_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.VideoTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "VideoTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_0_PostsDataTemplateSelector_VideoTemplate;
+                xamlMember.Setter = set_0_PostsDataTemplateSelector_VideoTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.PhotoTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "PhotoTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_1_PostsDataTemplateSelector_PhotoTemplate;
+                xamlMember.Setter = set_1_PostsDataTemplateSelector_PhotoTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.DefaultTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "DefaultTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_2_PostsDataTemplateSelector_DefaultTemplate;
+                xamlMember.Setter = set_2_PostsDataTemplateSelector_DefaultTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.RegularTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "RegularTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_3_PostsDataTemplateSelector_RegularTemplate;
+                xamlMember.Setter = set_3_PostsDataTemplateSelector_RegularTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.LinkTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "LinkTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_4_PostsDataTemplateSelector_LinkTemplate;
+                xamlMember.Setter = set_4_PostsDataTemplateSelector_LinkTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.QuoteTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "QuoteTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_5_PostsDataTemplateSelector_QuoteTemplate;
+                xamlMember.Setter = set_5_PostsDataTemplateSelector_QuoteTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.ConversationTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "ConversationTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_6_PostsDataTemplateSelector_ConversationTemplate;
+                xamlMember.Setter = set_6_PostsDataTemplateSelector_ConversationTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.AudioTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "AudioTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_7_PostsDataTemplateSelector_AudioTemplate;
+                xamlMember.Setter = set_7_PostsDataTemplateSelector_AudioTemplate;
+                break;
+            case "TumblrViewer.Utils.Selectors.PostsDataTemplateSelector.AnswerTemplate":
+                userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("TumblrViewer.Utils.Selectors.PostsDataTemplateSelector");
+                xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "AnswerTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_8_PostsDataTemplateSelector_AnswerTemplate;
+                xamlMember.Setter = set_8_PostsDataTemplateSelector_AnswerTemplate;
+                break;
             case "DrawerLayout.DrawerLayout.IsDrawerOpen":
                 userType = (global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlUserType)GetXamlTypeByName("DrawerLayout.DrawerLayout");
                 xamlMember = new global::TumblrViewer.TumblrViewer_XamlTypeInfo.XamlMember(this, "IsDrawerOpen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_0_DrawerLayout_IsDrawerOpen;
-                xamlMember.Setter = set_0_DrawerLayout_IsDrawerOpen;
+                xamlMember.Getter = get_9_DrawerLayout_IsDrawerOpen;
+                xamlMember.Setter = set_9_DrawerLayout_IsDrawerOpen;
                 break;
             }
             return xamlMember;

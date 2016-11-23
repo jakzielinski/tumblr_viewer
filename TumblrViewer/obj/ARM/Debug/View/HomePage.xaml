@@ -5,12 +5,62 @@
     xmlns:local="using:TumblrViewer.View"
     xmlns:Drawer="using:DrawerLayout"
     xmlns:Converters="using:TumblrViewer.Utils.Converters"
-    xmlns:Template="using:TumblrViewer.Utils.Selectors"
+    xmlns:Selector="using:TumblrViewer.Utils.Selectors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <Converters:PhotoListToPhotoConverter x:Key="PhotoListToPhotoConverter" />
+        <Converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter" />
+        <Converters:CaptionToString x:Key="CaptionToString"/>
+        <Converters:VideoConverter x:Key="VideoPlayerConverter"/>
+        <Converters:ToUpperCaseConverter x:Key="ToUpperCaseConverter"/>
+        <DataTemplate x:Key="VideoTemplateX">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Text="{Binding date}" FontSize="35"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="PhotoTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" HorizontalAlignment="Stretch" Height="300" Stretch="UniformToFill" Margin="5,15">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding photourl, Converter ={StaticResource PhotoListToPhotoConverter}}"  />
+                    </Image.Source>
+                </Image>
+                <TextBlock HorizontalAlignment="Center" Margin="5" Grid.Row="1" FontWeight="SemiBold" FontSize="18" FontFamily="Cantara" FontStyle="Italic" TextWrapping="WrapWholeWords" Text="{Binding photocaption, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DefaultTemplateX">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Width="10" Height="10" Margin="30">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding photourl, Converter ={StaticResource PhotoListToPhotoConverter}}"  />
+                    </Image.Source>
+                </Image>
+                <TextBlock HorizontalAlignment="Right" Margin="5" Grid.Row="1" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <Selector:PostsDataTemplateSelector x:Key="CustomDataTemplateSelector" 
+                                            VideoTemplate="{StaticResource VideoTemplateX}"
+                                            PhotoTemplate="{StaticResource PhotoTemplateX}"
+                                            DefaultTemplate="{StaticResource DefaultTemplateX}"/>
+    </Page.Resources>
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -22,68 +72,54 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:ConnectionId='3' x:Uid="MenuIcon" x:Name="MenuIcon" VerticalAlignment="Center" FontSize="40" Padding="0,0,0,12" Text="&#xE26E;" FontFamily="Segoe UI Symbol"                         />
+            <TextBlock x:ConnectionId='4' x:Uid="MenuIcon" x:Name="MenuIcon" VerticalAlignment="Center" FontSize="40" Padding="0,0,0,12" Text="&#xE26E;" FontFamily="Segoe UI Symbol"                         />
             <TextBlock x:Uid="MainPageHeader" x:Name="MainPageHeader" Grid.Column="1" Foreground="White" Margin="5,0" Visibility="Visible" VerticalAlignment="Center" FontSize="18"/>
-            <TextBox x:ConnectionId='4' x:Uid="SearchBox" x:Name="SearchBox" VerticalAlignment="Center" Text="{Binding userName, Mode=TwoWay}" PlaceholderText="" Visibility="Collapsed" Grid.Column="1" Margin="5"                                     />
-            <TextBlock x:ConnectionId='5' x:Uid="SearchIcon" x:Name="SearchIcon" VerticalAlignment="Center" Visibility="Visible" Grid.Column="2" Margin="10,0" Text="&#xE094;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"                           />
-            <TextBlock x:ConnectionId='6' x:Uid="SearchButton" x:Name="SearchButton" VerticalAlignment="Center" Visibility="Collapsed" Grid.Column="2" Margin="10,0" Text="&#xE0AD;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"                             />
+            <TextBox x:ConnectionId='5' x:Uid="SearchBox" x:Name="SearchBox" VerticalAlignment="Center" Text="{Binding userName, Mode=TwoWay}" PlaceholderText="" Visibility="Collapsed" Grid.Column="1" Margin="5"                                     />
+            <TextBlock x:ConnectionId='6' x:Uid="SearchIcon" x:Name="SearchIcon" VerticalAlignment="Center" Visibility="Visible" Grid.Column="2" Margin="10,0" Text="&#xE094;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"                           />
+            <TextBlock x:ConnectionId='7' x:Uid="SearchButton" x:Name="SearchButton" VerticalAlignment="Center" Visibility="Collapsed" Grid.Column="2" Margin="10,0" Text="&#xE0AD;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"                             />
         </Grid>
-        <Drawer:DrawerLayout Grid.Row="1" x:Name="NavPane">
-            <Grid x:Name="MainFragment" Background="#4E6587">
-                <Grid.Resources>
-                    <Converters:PhotoListToPhotoConverter x:Key="PhotoListToPhotoConverter" />
-                    <Converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter" />
-                    <Converters:PhotoCaptionToString x:Key="PhotoCaptionToString"/>
-                </Grid.Resources>
-                <ListView x:ConnectionId='2' x:Name="MainListView" ItemsSource="{Binding postCollection}" Height="Auto"                                                 >
-                        <!--<ListView.Resources>
-                        </ListView.Resources>-->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid Grid.Row="0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Image Width="75" Height="75" Margin="10" Grid.Column="0">
-                                            <Image.Source>
-                                                <BitmapImage UriSource="{Binding photourl, Converter ={StaticResource PhotoListToPhotoConverter}}"  />
-                                            </Image.Source>
-                                        </Image>
-                                        <TextBlock Text="{Binding photocaption, Converter={StaticResource PhotoCaptionToString}}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0" Grid.Column="1" AllowDrop="False"/>
-                                    </Grid>
-                                    <Grid Grid.Row="1">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding dategmt, Converter={StaticResource DateToTimeAgoConverter }}" VerticalAlignment="Center" Margin="10,0" Grid.Column="1" AllowDrop="False"/>
-                                    </Grid>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-            </Grid>
-            <Grid x:Name="ListFragment" Background="#4E6587">
+        <Drawer:DrawerLayout Grid.Row="1" x:Name="NavPane" >
+            <Grid x:Name="MainFragment" Background="#4E6587" HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ListView x:ConnectionId='1' Grid.Row="1" VerticalAlignment="Center" Background="#4E6587" x:Name="MenuItems"                                              >
+                <TextBlock x:Name="HeaderName" Margin="10" Grid.Row="0" Foreground="White" Text="{Binding tumblrLog.name, Converter={StaticResource ToUpperCaseConverter}}" FontSize="25" FontFamily="Constantia" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="HeaderTitle" Grid.Row="1" Foreground="White" Text="{Binding tumblrLog.title}" FontSize="25" FontFamily="Constantia" HorizontalAlignment="Center"/>
+                <ListView x:ConnectionId='3' x:Name="MainListView" Grid.Row="2" Margin="10,0" ItemsSource="{Binding postCollection}" HorizontalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource CustomDataTemplateSelector}" Height="Auto"                                                 />
+            </Grid>
+            <Grid x:Name="ListFragment" Background="#36465D">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView x:ConnectionId='1' VerticalAlignment="Top" Grid.Row="0" Background="#36465D" x:Name="MenuItems"                                              >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Background="#4E6587" Margin="0,0,0,1" >
+                            <Grid Background="#36465D" Margin="0,0,0,1" >
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="{Binding MenuList}" Margin="10"  VerticalAlignment="Center" FontSize="18" Foreground="White" />
-                                <Rectangle Grid.Row="1" HorizontalAlignment="Left" Fill="Gray" Width="500" Height="0.5"/>
+                                <TextBlock Grid.Row="0" Text="{Binding }"  FontSize="25" Margin="10"  VerticalAlignment="Center" Foreground="White" />
+                                <Rectangle Grid.Row="1" HorizontalAlignment="Left" Width="300" Height="0.5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Rectangle Grid.Row="1" HorizontalAlignment="Stretch" Fill="#4E6587" Height="4" Margin="4,0"/>
+                <ListView x:ConnectionId='2' Grid.Row="2" VerticalAlignment="Bottom" Background="#36465D"  x:Name="MenuItemsBottom"                                              >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#36465D" Margin="0,0,0,1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding }" FontSize="25" Margin="10"  VerticalAlignment="Center" Foreground="White" />
+                                <Rectangle Grid.Row="1" HorizontalAlignment="Left" Width="300" Height="0.5"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -91,12 +127,10 @@
             </Grid>
         </Drawer:DrawerLayout>
     </Grid>
-
     <Page.BottomAppBar>
         <CommandBar Background="#36465D">
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Refresh" Label="refresh"/>
-                <AppBarButton Icon="Sort" Label="sort"/>
+                <AppBarButton x:ConnectionId='8' x:Uid="HomePageSortButton" Icon="Sort" Label=""                           />
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

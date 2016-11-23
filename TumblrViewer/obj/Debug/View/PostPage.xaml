@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="TumblrViewer.View.PostPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TumblrViewer.View"
+    xmlns:Converters="using:TumblrViewer.Utils.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Converters:PhotoListToPhotoConverter x:Key="PhotoListToPhotoConverter" />
+        <Converters:CaptionToString x:Key="CaptionToString"/>
+        <Converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter"/>
+    </Page.Resources>
+    <Grid Background="#4E6587">
+        <!--<Grid x:Name="ProgressGrid" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Gray" Opacity="0.7">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressRing x:Name="ProgressRing" IsActive="False" Foreground="White" Visibility="Visible" Height="90" Width="90" />
+                <TextBlock Text="Please wait..." FontSize="25"/>
+            </StackPanel>
+        </Grid>-->
+        <ScrollViewer>
+            <StackPanel>
+                <Image Margin="15" Width="Auto" Height="Auto" Stretch="Uniform" Source="{Binding post.photourl, Converter={StaticResource PhotoListToPhotoConverter }}"/>
+                <TextBlock Margin="10" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="22" FontFamily="Cantara" FontStyle="Italic" TextWrapping="WrapWholeWords" Text="{Binding post.photocaption, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding post.date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#36465D" Visibility="Visible">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:ConnectionId='1' x:Uid="PostPageSavePhotoButton" Icon="Save" Label=""                           />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+
+

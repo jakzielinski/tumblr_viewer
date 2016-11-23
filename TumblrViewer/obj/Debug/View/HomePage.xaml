@@ -1,0 +1,195 @@
+﻿<Page
+    x:Class="TumblrViewer.View.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TumblrViewer.View"
+    xmlns:Drawer="using:DrawerLayout"
+    xmlns:Converters="using:TumblrViewer.Utils.Converters"
+    xmlns:Selector="using:TumblrViewer.Utils.Selectors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Converters:PhotoListToPhotoConverter x:Key="PhotoListToPhotoConverter" />
+        <Converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter" />
+        <Converters:CaptionToString x:Key="CaptionToString"/>
+        <Converters:VideoConverter x:Key="VideoPlayerConverter"/>
+        <Converters:ToUpperCaseConverter x:Key="ToUpperCaseConverter"/>
+        <DataTemplate x:Key="VideoTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" Margin="5" Grid.Row="0" FontWeight="SemiBold" FontSize="18" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding videocaption, Converter={StaticResource CaptionToString}}"/>
+                <HyperlinkButton HorizontalAlignment="Left" Margin="5" Grid.Row="1" FontWeight="Bold" FontSize="15" FontFamily="Cantara" NavigateUri="{Binding videosource}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="PhotoTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" HorizontalAlignment="Stretch" Height="300" Stretch="UniformToFill" Margin="5,15">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding photourl, Converter ={StaticResource PhotoListToPhotoConverter}}"  />
+                    </Image.Source>
+                </Image>
+                <TextBlock HorizontalAlignment="Center" Margin="5" Grid.Row="1" FontWeight="SemiBold" FontSize="18" FontFamily="Cantara" FontStyle="Italic" TextWrapping="WrapWholeWords" Text="{Binding photocaption, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RegularTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Grid.Row="0" FontWeight="SemiBold" FontSize="22" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding regulartitle, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" FontWeight="Normal" FontSize="15" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding regularbody, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="LinkTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Grid.Row="0" FontWeight="SemiBold" FontSize="22" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding linktext, Converter={StaticResource CaptionToString}}"/>
+                <HyperlinkButton HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" FontWeight="Normal" FontSize="15" FontFamily="Cantara" NavigateUri="{Binding linkurl, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="QuoteTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" Margin="5" Grid.Row="0" FontWeight="Bold" FontSize="22" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding quotetext, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5" Grid.Row="1" FontWeight="Normal" FontSize="15" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding quotesource, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="AnswerTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" Margin="5" Grid.Row="0" FontWeight="SemiBold" FontSize="22" FontStyle="Italic" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding question, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" FontWeight="SemiBold" FontSize="15" FontFamily="Cantara" TextWrapping="WrapWholeWords" Text="{Binding answer, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DefaultTemplateX">
+            <Grid x:Name="TemplateGrid" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" HorizontalAlignment="Stretch" Height="300" Stretch="UniformToFill" Margin="5,15">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding photourl, Converter ={StaticResource PhotoListToPhotoConverter}}"  />
+                    </Image.Source>
+                </Image>
+                <TextBlock HorizontalAlignment="Center" Margin="5" Grid.Row="1" FontWeight="SemiBold" FontSize="18" FontFamily="Cantara" FontStyle="Italic" TextWrapping="WrapWholeWords" Text="{Binding photocaption, Converter={StaticResource CaptionToString}}"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5,0,5,20" Grid.Row="2" FontWeight="Bold" FontSize="10" Text="{Binding date, Converter={StaticResource DateToTimeAgoConverter}}"/>
+            </Grid>
+        </DataTemplate>
+        <Selector:PostsDataTemplateSelector x:Key="CustomDataTemplateSelector" 
+                                            VideoTemplate="{StaticResource VideoTemplateX}"
+                                            PhotoTemplate="{StaticResource PhotoTemplateX}"
+                                            RegularTemplate="{StaticResource RegularTemplateX}"
+                                            LinkTemplate="{StaticResource LinkTemplateX}"
+                                            QuoteTemplate="{StaticResource QuoteTemplateX}"
+                                            AnswerTemplate="{StaticResource AnswerTemplateX}"
+                                            DefaultTemplate="{StaticResource DefaultTemplateX}"/>
+    </Page.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="TitleBar" Background="#36465D"  Grid.Row ="0" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:ConnectionId='4' x:Uid="MenuIcon" x:Name="MenuIcon" VerticalAlignment="Center" FontSize="40" Padding="0,0,0,12" Text="&#xE26E;" FontFamily="Segoe UI Symbol"                         />
+            <TextBlock x:Uid="MainPageHeader" x:Name="MainPageHeader" Grid.Column="1" Foreground="White" Margin="5,0" Visibility="Visible" VerticalAlignment="Center" FontSize="18"/>
+            <TextBox x:ConnectionId='5' x:Uid="SearchBox" x:Name="SearchBox" VerticalAlignment="Center" Text="{Binding userName, Mode=TwoWay}" PlaceholderText="" Visibility="Collapsed" Grid.Column="1" Margin="5"                                                               />
+            <TextBlock x:ConnectionId='6' x:Uid="SearchIcon" x:Name="SearchIcon" VerticalAlignment="Center" Visibility="Visible" Grid.Column="2" Margin="10,0" Text="&#xE094;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"                           />
+            <TextBlock x:ConnectionId='7' x:Uid="SearchButton" x:Name="SearchButton" VerticalAlignment="Center" Visibility="Collapsed" Grid.Column="2" Margin="10,0" Text="&#xE0AD;" FontSize="40" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"                             />
+        </Grid>
+        <Drawer:DrawerLayout Grid.Row="1" x:Name="NavPane" >
+            <Grid x:Name="MainFragment" Background="#4E6587" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="HeaderName" Margin="10" Grid.Row="0" Foreground="White" Text="{Binding tumblrLog.name, Converter={StaticResource ToUpperCaseConverter}}" FontSize="25" FontFamily="Constantia" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="HeaderTitle" Grid.Row="1" Foreground="White" Text="{Binding tumblrLog.title}" FontSize="25" FontFamily="Constantia" HorizontalAlignment="Center"/>
+                <ListView x:ConnectionId='3' x:Name="MainListView" Grid.Row="2" Margin="10,0" ItemsSource="{Binding postCollection}" HorizontalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource CustomDataTemplateSelector}" Height="Auto"                                                 />
+            </Grid>
+            <Grid x:Name="ListFragment" Background="#36465D">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView x:ConnectionId='1' VerticalAlignment="Top" Grid.Row="0" Background="#36465D" x:Name="MenuItems"                                              >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#36465D" Margin="0,0,0,1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding }"  FontSize="25" Margin="10"  VerticalAlignment="Center" Foreground="White" />
+                                <Rectangle Grid.Row="1" HorizontalAlignment="Left" Width="300" Height="0.5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Rectangle Grid.Row="1" HorizontalAlignment="Stretch" Fill="#4E6587" Height="4" Margin="4,0"/>
+                <ListView x:ConnectionId='2' Grid.Row="2" VerticalAlignment="Bottom" Background="#36465D"  x:Name="MenuItemsBottom"                                              >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#36465D" Margin="0,0,0,1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding }" FontSize="25" Margin="10"  VerticalAlignment="Center" Foreground="White" />
+                                <Rectangle Grid.Row="1" HorizontalAlignment="Left" Width="300" Height="0.5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Drawer:DrawerLayout>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#36465D">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:ConnectionId='8' x:Uid="HomePageSortButton" Icon="Sort" Label=""                           />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

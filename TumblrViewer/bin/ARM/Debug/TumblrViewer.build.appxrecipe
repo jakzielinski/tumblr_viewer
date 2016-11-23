@@ -10,64 +10,67 @@
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>7616796a-89b1-49cd-a164-57f4628002bb</PackageIdentityName>
     <PackageIdentityPublisher>CN=korko</PackageIdentityPublisher>
-    <IntermediateOutputPath>c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\TumblrViewer.exe">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\TumblrViewer.exe">
       <PackagePath>TumblrViewer.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\packages\DrawerLayout.1.0.4\lib\DrawerLayout.dll">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\packages\DrawerLayout.1.0.4\lib\DrawerLayout.dll">
       <PackagePath>DrawerLayout.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\wpa81\System.Runtime.InteropServices.RuntimeInformation.dll">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\wpa81\System.Runtime.InteropServices.RuntimeInformation.dll">
       <PackagePath>System.Runtime.InteropServices.RuntimeInformation.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\packages\Xml.Net.1.0.6\lib\netstandard1.0\Xml.Net.dll">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\packages\Xml.Net.1.0.6\lib\netstandard1.0\Xml.Net.dll">
       <PackagePath>Xml.Net.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\SmallLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\SmallLogo.scale-240.png">
       <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\SplashScreen.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\SplashScreen.scale-240.png">
       <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\Square71x71Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\Square71x71Logo.scale-240.png">
       <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\StoreLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\StoreLogo.scale-240.png">
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\WideLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\TumblrViewer.xr.xml">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\TumblrViewer.xr.xml">
       <PackagePath>TumblrViewer.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\View\HomePage.xbf">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\View\HomePage.xbf">
       <PackagePath>View\HomePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\korko\documents\visual studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\View\PostPage.xbf">
+      <PackagePath>View\PostPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>

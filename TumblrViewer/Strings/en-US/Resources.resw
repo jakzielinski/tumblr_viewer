@@ -117,8 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HomePageSortButton.Label" xml:space="preserve">
+    <value>sort</value>
+  </data>
   <data name="MainPageHeader.Text" xml:space="preserve">
     <value>TumblrViewer</value>
+  </data>
+  <data name="NoInternetPopup" xml:space="preserve">
+    <value>no internet connection</value>
+  </data>
+  <data name="NoSuchUser" xml:space="preserve">
+    <value>user not found</value>
+  </data>
+  <data name="PostPageSaved" xml:space="preserve">
+    <value>successfully saved</value>
+  </data>
+  <data name="PostPageSavePhotoButton.Label" xml:space="preserve">
+    <value>save</value>
   </data>
   <data name="SearchBox.PlaceholderText" xml:space="preserve">
     <value>find in tumblr</value>

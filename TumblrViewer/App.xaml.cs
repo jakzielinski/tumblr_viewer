@@ -28,7 +28,7 @@ namespace TumblrViewer
     public sealed partial class App : Application
     {
         private TransitionCollection transitions;
-
+        
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -108,6 +108,15 @@ namespace TumblrViewer
             // Ensure the current window is active
             Window.Current.Activate();
         }
+
+        //private void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
+        //{
+        //    if (rootFrame.CanGoBack)
+        //    {
+        //        rootFrame.GoBack();
+        //        e.Handled = true;
+        //    }
+        //}
 
         /// <summary>
         /// Restores the content transitions after the app has launched.

@@ -4,28 +4,46 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="MenuList" />
-    <RootPropertyPathName Name="postCollection" />
-    <RootPropertyPathName Name="dategmt" />
-    <RootPropertyPathName Name="photocaption" />
+    <RootPropertyPathName Name="date" />
     <RootPropertyPathName Name="photourl" />
+    <RootPropertyPathName Name="photocaption" />
+    <RootPropertyPathName Name="postCollection" />
+    <RootPropertyPathName Name="tumblrLog" />
+    <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="name" />
     <RootPropertyPathName Name="userName" />
+    <RootPropertyPathName Name="post" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
+      <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
       <RootProperty Name="BottomAppBar" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="TumblrViewer.Utils.Converters.PhotoListToPhotoConverter" />
+    <RootType FullName="TumblrViewer.Utils.Converters.DateToTimeAgoConverter" />
+    <RootType FullName="TumblrViewer.Utils.Converters.CaptionToString" />
+    <RootType FullName="TumblrViewer.Utils.Converters.VideoConverter" />
+    <RootType FullName="TumblrViewer.Utils.Converters.ToUpperCaseConverter" />
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="TumblrViewer.Utils.Selectors.PostsDataTemplateSelector">
+      <RootProperty Name="VideoTemplate" />
+      <RootProperty Name="PhotoTemplate" />
+      <RootProperty Name="DefaultTemplate" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="Height" />
       <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="Resources" />
       <RootProperty Name="Margin" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
@@ -35,6 +53,36 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Stretch" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="FontStyle" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Visibility" />
+      <RootEvent Name="Tapped" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Converter" />
+      <RootProperty Name="Mode" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Imaging.BitmapImage">
+      <RootProperty Name="UriSource" />
+    </RootType>
     <RootType FullName="DrawerLayout.DrawerLayout">
       <RootProperty Name="Children" />
     </RootType>
@@ -42,51 +90,22 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="ItemTemplateSelector" />
       <RootProperty Name="Height" />
       <RootEvent Name="SelectionChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Text" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="AllowDrop" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="FontFamily" />
-      <RootProperty Name="Visibility" />
-      <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Fill" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="Converter" />
-      <RootProperty Name="Mode" />
-    </RootType>
-    <RootType FullName="TumblrViewer.Utils.Converters.PhotoListToPhotoConverter" />
-    <RootType FullName="TumblrViewer.Utils.Converters.DateToTimeAgoConverter" />
-    <RootType FullName="TumblrViewer.Utils.Converters.PhotoCaptionToString" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Source" />
+      <RootProperty Name="Width" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.Imaging.BitmapImage">
-      <RootProperty Name="UriSource" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="VerticalAlignment" />
@@ -99,11 +118,17 @@
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
       <RootProperty Name="Background" />
       <RootProperty Name="PrimaryCommands" />
+      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="TumblrViewer.View.HomePage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="TumblrViewer.View.PostPage" />
   </Roots.RootTypes>
 </Roots>

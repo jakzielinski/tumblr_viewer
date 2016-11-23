@@ -7,9 +7,12 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Serialization;
 using TumblrViewer.Model;
 using TumblrViewer.ViewModel;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,29 +31,45 @@ namespace TumblrViewer.View
     public sealed partial class HomePage : Page
     {
         UserPageViewModel _userPageViewModel;
-
+        ResourceLoader resourceLoader ;
         public HomePage()
         {
             _userPageViewModel = new UserPageViewModel();
 
             this.InitializeComponent();
             this.DataContext = _userPageViewModel;
-
+            this.NavigationCacheMode = NavigationCacheMode.Required;
             NavPane.InitializeDrawerLayout();
+            Windows.UI.ViewManagement.StatusBar.GetForCurrentView().BackgroundColor = Color.FromArgb(1, 78, 101, 135);
+
+            resourceLoader = new ResourceLoader();
+
+            //TMP MOCKED MENU
+            List<string> menuItemsTop = new List<string> { "Home", "Followers"};
+            MenuItems.ItemsSource = menuItemsTop;
+
+            List<string> menuItemsBottom = new List<string> { "Settings", "Login" };
+            MenuItemsBottom.ItemsSource = menuItemsBottom;
         }
 
         private async void SearchIcon_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            if (NavPane.IsDrawerOpen)
+            {
+                NavPane.CloseDrawer();
+            }
+                
             if (SearchBox.Visibility == Visibility.Collapsed)
             {
                 SearchBox.Visibility = Visibility.Visible;
                 MainPageHeader.Visibility = Visibility.Collapsed;
-            }else
+            }
+            else
             {
                 SearchBox.Visibility = Visibility.Collapsed;
                 MainPageHeader.Visibility = Visibility.Visible;
             }
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,() => SearchBox.Focus(FocusState.Keyboard));
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => SearchBox.Focus(FocusState.Keyboard));
         }
 
         private void MenuIcon_Tapped(object sender, TappedRoutedEventArgs e)
@@ -71,8 +90,15 @@ namespace TumblrViewer.View
             }
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            Windows.Phone.UI.Input.HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            MainListView.SelectedItem = null;
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
         void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
@@ -95,7 +121,7 @@ namespace TumblrViewer.View
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(SearchBox.Text != String.Empty)
+            if (SearchBox.Text != String.Empty)
             {
                 SearchIcon.Visibility = Visibility.Collapsed;
                 SearchButton.Visibility = Visibility.Visible;
@@ -109,12 +135,27 @@ namespace TumblrViewer.View
 
         private void MainListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            tumblrPostsPost itemId = ((sender as ListView).SelectedItem as tumblrPostsPost);
+            if (itemId != null)
+            {
+                if (itemId.type.Equals("photo"))
+                {
+                    Frame.Navigate(typeof(PostPage), itemId);
+                }
+            }
         }
 
-        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            _userPageViewModel.Reverse();
+        }
 
+        private void SearchBox_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (NavPane.IsDrawerOpen)
+            {
+                NavPane.CloseDrawer();
+            }
         }
     }
 }
