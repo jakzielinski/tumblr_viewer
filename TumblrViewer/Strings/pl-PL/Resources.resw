@@ -138,4 +138,16 @@
   <data name="SearchBox.PlaceholderText" xml:space="preserve">
     <value>znajdź w tumblrze</value>
   </data>
+  <data name="Followers" xml:space="preserve">
+    <value>Obserwujący</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona Główna</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
 </root>

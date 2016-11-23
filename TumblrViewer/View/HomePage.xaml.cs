@@ -45,10 +45,10 @@ namespace TumblrViewer.View
             resourceLoader = new ResourceLoader();
 
             //TMP MOCKED MENU
-            List<string> menuItemsTop = new List<string> { "Home", "Followers"};
+            List<string> menuItemsTop = new List<string> { ResourceLoader.GetForCurrentView().GetString("Home"), ResourceLoader.GetForCurrentView().GetString("Followers") };
             MenuItems.ItemsSource = menuItemsTop;
 
-            List<string> menuItemsBottom = new List<string> { "Settings", "Login" };
+            List<string> menuItemsBottom = new List<string> { ResourceLoader.GetForCurrentView().GetString("Settings"), ResourceLoader.GetForCurrentView().GetString("Login") };
             MenuItemsBottom.ItemsSource = menuItemsBottom;
         }
 

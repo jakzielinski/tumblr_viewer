@@ -42,3 +42,11 @@ C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\o
 C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\qualifiers.txt.intermediate
 C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\ProjectArchitectures.txt
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\layout.resfiles
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\layout.resfiles.intermediate
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\Resources.resfiles
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\Resources.resfiles.intermediate
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\pri.resfiles
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\pri.resfiles.intermediate
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\priconfig.xml
+C:\Users\korko\Documents\Visual Studio 2015\Projects\TumblrViewer\TumblrViewer\obj\Debug\System.Runtime.InteropServices.RuntimeInformation\priconfig.xml.intermediate
